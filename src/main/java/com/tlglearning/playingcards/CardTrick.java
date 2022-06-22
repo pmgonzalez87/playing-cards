@@ -68,7 +68,7 @@ public CardTrick(){
             }
         }
 
-        class DisplayComparator implements Comparator<Card> {
+        Comparator<Card> comparator = new Comparator<>() {
 
             @Override
             public int compare(Card card1, Card card2) {
@@ -78,9 +78,8 @@ public CardTrick(){
                 return comparison;
             }
 
-        }
+        };
 
-        Comparator<Card> comparator = new DisplayComparator();
         Collections.sort((LinkedList<Card>) blackPile, comparator);
         Collections.sort((LinkedList<Card>) redPile, comparator);
         System.out.printf("Black: count=%d, cards=%s%n", blackCount, blackPile);
